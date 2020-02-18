@@ -10,6 +10,8 @@ namespace Pool
     {
         static void Main(string[] args)
         {
+            List<int> golyók = new List<int>();
+
 
             Console.ReadKey();
         }
