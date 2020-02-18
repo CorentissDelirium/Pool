@@ -10,6 +10,8 @@ namespace Pool
     {
         static void Main(string[] args)
         {
+
+            Console.ReadKey();
         }
     }
 }
