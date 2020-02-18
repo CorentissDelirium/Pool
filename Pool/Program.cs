@@ -12,15 +12,36 @@ namespace Pool
         {
             List<int> golyók = new List<int>();
             Kezdés(golyók);
-            for (int i = 0; i < golyók.Count; i++)
+            int leeső=LeesőSorsoló(golyók);
+            Kiíró(golyók);
+            do
             {
-                Console.WriteLine(golyók[i]);
-            }
 
+            } while (leeső!=8);
+
+            
             Console.ReadKey();
         }
 
-        private static void Kezdés(List<int> golyók)
+        static void Kiíró(List<int> golyók)
+        {
+            foreach (int item in golyók)
+            {
+                Console.Write($"{item} ");
+            }
+        }
+
+        static int LeesőSorsoló(List<int> golyók)  //Hányadik golyó fog leesni a listából.
+        {
+            int szám = 0;
+            Random gép = new Random();
+            szám = gép.Next(golyók.Count);
+            golyók.Remove(szám);
+
+            return golyók[szám];
+        }
+
+        static void Kezdés(List<int> golyók)
         {
             for (int i = 1; i <= 15; i++)
             {
