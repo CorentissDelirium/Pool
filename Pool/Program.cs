@@ -12,13 +12,26 @@ namespace Pool
         {
             List<int> golyók = new List<int>();
             Kezdés(golyók);
-            int leeső=LeesőSorsoló(golyók);
-            Kiíró(golyók);
+            int leeső;
             do
             {
-
+                leeső = LeesőSorsoló(golyók);
+                Kiíró(golyók);
+                Console.WriteLine($"A leesett golyó {leeső}");
+                
             } while (leeső!=8);
+            if (leeső==8&&golyók.Count>0)
+            {
+                Console.WriteLine("Vesztettél");
+            }
+            else if (golyók.Count<1)
+            {
+                Console.WriteLine("Győzelem");
+            }
+            else
+            {
 
+            }
             
             Console.ReadKey();
         }
@@ -36,7 +49,7 @@ namespace Pool
             int szám = 0;
             Random gép = new Random();
             szám = gép.Next(golyók.Count);
-            golyók.Remove(szám);
+            golyók.Remove(golyók[szám]);
 
             return golyók[szám];
         }
